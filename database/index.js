@@ -10,6 +10,7 @@ db.once('open', function() {
 
 //schema is a giant array with multiple 
 let repoSchema = mongoose.Schema({ 
+  id: {type:Number, unique:true, dropDups: true}, 
   repoName: String,
   owner: String,
   url: String,
@@ -18,30 +19,19 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema); //compiling our schema into a Model.
 
-// let save = (repoObj)=> { //In MongoDB, databases hold collections of documents.
-//   var newData = JSON.parse(repoObj)
-//   var len = newData.length - 1
-//   newData.forEach((repo, index)=>{
-//     var row = new Repo({repoName:repo.name, owner:repo.owner.login, url:repo.html_url, star:repo.stargazers_count});
-//       row.save(function(err, row){
-//         if (err) return console.error(err);
-//         console.log(index + "/" + len + " ---- " + row.repoName + " ---- saved as document");
-//       })
-//   });
-// }
-
 let save = (repoObj, saveRepoCB)=> { //In MongoDB, databases hold collections of documents.
   var newData = JSON.parse(repoObj)
   var len = newData.length - 1
   newData.forEach((repo, index)=>{
-    var row = new Repo({repoName:repo.name, owner:repo.owner.login, url:repo.html_url, star:repo.stargazers_count});
+    var row = new Repo({id:repo.id, repoName:repo.name, owner:repo.owner.login, url:repo.html_url, star:repo.stargazers_count});
       row.save(function(err, row){
         if(err){
+          console.log(err)
           saveRepoCB(err)
         }else{
-          console.log(index + "/" + len + " ---- " + row.repoName + " ---- saved as document");
           if(index === len){
               saveRepoCB(null, row)
+             console.log("+" +index + "/" + len + " ---- " + row.repoName + " ---- saved as document");
            }
         }
       })
@@ -79,6 +69,8 @@ fs.readFile('../data.json', 'utf8', (err, data) => {
   }
   save(data);
 });
+
+id:repo.id, 
 
 
 =============old version 

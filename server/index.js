@@ -33,7 +33,7 @@ app.post('/repos', function (req, res) {//check the format of the req.body
 				}else{
 					db.queryTopRepo(function (err, results) {
 					  if(results){
-					  	res.status(201).send(results);
+					  	res.status(201).json(results);
 					  }else{
 					  	res.sendstatus(404);
 					  }
@@ -62,17 +62,6 @@ app.listen(port, function() {
 
 
 
-/*
-table: 
-
-- user name
-
-repo
--repo name
-- repo link
--stargazers_count
-
-*/
 
 /*
 Complete the POST /repos endpoint on your express server - in this route, you'll 
