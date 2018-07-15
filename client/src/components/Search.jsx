@@ -3,6 +3,9 @@ import React from 'react';
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    this.onChange = this.onChange.bind(this);
+    this.search = this.search.bind(this);
+
     this.state = {
       term: ''
     }
@@ -28,3 +31,10 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+
+/*
+When a user types a GitHub username into the text field, use jQuery's ajax method to send 
+a POST request to /repos (you'll have to fix the bug in the Search Component first).
+
+*/
