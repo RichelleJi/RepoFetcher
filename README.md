@@ -19,7 +19,7 @@ A step by step series of examples that shows how to get a development env runnin
 Install MongoDB
 
 * [Follow the installation](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition-with-homebrew) instructions. 
-*[Follow these instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#run-mongodb) to run MongoDB.
+* [Follow these instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#run-mongodb) to run MongoDB.
 
 
 
