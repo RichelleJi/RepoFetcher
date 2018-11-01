@@ -14,7 +14,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that shows how to get a development env running
 
 Install MongoDB
 
@@ -42,10 +42,6 @@ $ npm run server-dev
 Open the application in your browser at localhost:1128.
 ```
 
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 * React
